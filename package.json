@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-shell": "^0.4.2",
+    "gulp-watch": "^4.3.4"
+  },
+  "scripts": {
+    "start": "php artisan serve --port 8888 --host 0.0.0.0",
+    "console": "php artisan tinker",
+    "watch": "gulp watch",
+    "migrate": "php artisan migrate",
+    "helper:meta": "php artisan ide-helper:meta",
+    "helper:models": "php artisan ide-helper:models",
+    "seed": "php artisan db:seed",
+    "seed:create": "php artisan make:seeder",
+    "migrate:create": "php artisan make:migration",
+    "db:migrate": "php artisan migrate",
+    "db:reset": "php artisan migrate:reset",
+    "db:refresh": "php artisan migrate:refresh --seed"
+  },
+  "dependencies": {
+    "laravel-elixir": "^3.0.0",
+    "bootstrap-sass": "^3.0.0"
+  }
+}
