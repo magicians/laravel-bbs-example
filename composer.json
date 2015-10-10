@@ -11,7 +11,8 @@
         "barryvdh/laravel-debugbar": "~2.0",
         "rcrowe/twigbridge": "0.8.x",
         "filp/whoops": "~1.0",
-        "myclabs/php-enum": "^1.4"
+        "myclabs/php-enum": "^1.4",
+        "heroku/heroku-buildpack-php": "^78.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
