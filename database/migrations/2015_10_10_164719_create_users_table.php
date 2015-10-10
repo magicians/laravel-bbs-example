@@ -12,13 +12,14 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('users', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password', 60);
-            $table->rememberToken();
             $table->timestamps();
+        });
+
+        Schema::table('threads', function(Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -29,6 +30,9 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        Schema::table('threads', function(Blueprint $table) {
+            $table->dropForeign('threads_user_id_foreign');
+        });
         Schema::drop('users');
     }
 }

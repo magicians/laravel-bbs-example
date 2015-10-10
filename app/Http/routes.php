@@ -12,5 +12,6 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $threads = \App\Models\Thread::with(['user', 'comments'])->paginate(10);
+    return view('welcome')->with(compact('threads'));
 });

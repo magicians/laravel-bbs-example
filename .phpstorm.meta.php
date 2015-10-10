@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2015-09-06.
+    * Generated on 2015-10-10.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -123,6 +123,8 @@ namespace PHPSTORM_META {
             'command.queue.subscribe' instanceof \Illuminate\Queue\Console\SubscribeCommand,
             'queue.failer' instanceof \Illuminate\Queue\Failed\DatabaseFailedJobProvider,
             'IlluminateQueueClosure' instanceof \IlluminateQueueClosure,
+            'auth.password' instanceof \Illuminate\Auth\Passwords\PasswordBroker,
+            'auth.password.tokens' instanceof \Illuminate\Auth\Passwords\DatabaseTokenRepository,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'html' instanceof \Collective\Html\HtmlBuilder,
@@ -245,6 +247,8 @@ namespace PHPSTORM_META {
             'command.queue.subscribe' instanceof \Illuminate\Queue\Console\SubscribeCommand,
             'queue.failer' instanceof \Illuminate\Queue\Failed\DatabaseFailedJobProvider,
             'IlluminateQueueClosure' instanceof \IlluminateQueueClosure,
+            'auth.password' instanceof \Illuminate\Auth\Passwords\PasswordBroker,
+            'auth.password.tokens' instanceof \Illuminate\Auth\Passwords\DatabaseTokenRepository,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'html' instanceof \Collective\Html\HtmlBuilder,
@@ -367,6 +371,8 @@ namespace PHPSTORM_META {
             'command.queue.subscribe' instanceof \Illuminate\Queue\Console\SubscribeCommand,
             'queue.failer' instanceof \Illuminate\Queue\Failed\DatabaseFailedJobProvider,
             'IlluminateQueueClosure' instanceof \IlluminateQueueClosure,
+            'auth.password' instanceof \Illuminate\Auth\Passwords\PasswordBroker,
+            'auth.password.tokens' instanceof \Illuminate\Auth\Passwords\DatabaseTokenRepository,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'html' instanceof \Collective\Html\HtmlBuilder,
@@ -489,6 +495,8 @@ namespace PHPSTORM_META {
             'command.queue.subscribe' instanceof \Illuminate\Queue\Console\SubscribeCommand,
             'queue.failer' instanceof \Illuminate\Queue\Failed\DatabaseFailedJobProvider,
             'IlluminateQueueClosure' instanceof \IlluminateQueueClosure,
+            'auth.password' instanceof \Illuminate\Auth\Passwords\PasswordBroker,
+            'auth.password.tokens' instanceof \Illuminate\Auth\Passwords\DatabaseTokenRepository,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'html' instanceof \Collective\Html\HtmlBuilder,
