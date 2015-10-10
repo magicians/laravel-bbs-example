@@ -1,0 +1,7 @@
+{% if errors|length > 0 %}
+  <ul class="errors">
+    {% for err in errors.all() %}
+      <li>{{ err }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}

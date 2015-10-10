@@ -20,19 +20,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class User extends Model
 {
+    const RANDOM_NAME_LENGTH = 8;
 
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table = 'users';
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = ['name'];
 
     public function comments()
@@ -45,4 +34,9 @@ class User extends Model
         return $this->hasMany('App\Models\Thread');
     }
 
+
+    public static function createRandomName()
+    {
+        return substr(str_shuffle('1234567890abcdefghijklmnopqrstuvwxyz'), 0, self::RANDOM_NAME_LENGTH);
+    }
 }

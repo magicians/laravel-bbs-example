@@ -40,6 +40,11 @@ class Comment extends Model
         return $this->belongsTo('App\Models\Thread');
     }
 
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
     public function scopeThreadId($query, $threadId)
     {
         return $query->whereThreadId($threadId);

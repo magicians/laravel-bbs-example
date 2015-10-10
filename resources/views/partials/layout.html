@@ -1,0 +1,54 @@
+{% import 'partials/macros.html' as macros %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+  {% include 'partials.meta.html' %}
+</head>
+
+<body data-namespace="appname">
+
+{% block body_script %}{% endblock %}
+
+{% block header %}
+  <div class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        {{ link_to_route('top', 'bbs', '', {class:'navbar-brand'}) }}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+<div class="container-wrapper">
+
+  {% block main_container %}
+    <div class="container main">
+
+      <div class="contents-main">
+
+        {% block breadcrumbs %}{% endblock %}
+
+        <div class="main-lane {% block contents_main_class %}{% endblock %}">
+          {% block contents_main %}{% endblock %}
+        </div>
+
+        <div class="side-lane">
+          {% block contents_right %}{% endblock %}
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block footer %}
+    {% block before_footer %}{% endblock %}
+  {% endblock %}
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/jquery-2.1.0.min.js"><\/script>')</script>
+{% block external_css %}{% endblock %}
+<script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>

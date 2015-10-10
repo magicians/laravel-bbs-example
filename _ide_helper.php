@@ -1247,6 +1247,315 @@ namespace {
             return \Illuminate\Auth\AuthManager::getDrivers();
         }
         
+        /**
+         * Determine if the current user is authenticated.
+         *
+         * @return bool 
+         * @static 
+         */
+        public static function check(){
+            return \Illuminate\Auth\Guard::check();
+        }
+        
+        /**
+         * Determine if the current user is a guest.
+         *
+         * @return bool 
+         * @static 
+         */
+        public static function guest(){
+            return \Illuminate\Auth\Guard::guest();
+        }
+        
+        /**
+         * Get the currently authenticated user.
+         *
+         * @return \App\Models\User|null 
+         * @static 
+         */
+        public static function user(){
+            return \Illuminate\Auth\Guard::user();
+        }
+        
+        /**
+         * Get the ID for the currently authenticated user.
+         *
+         * @return int|null 
+         * @static 
+         */
+        public static function id(){
+            return \Illuminate\Auth\Guard::id();
+        }
+        
+        /**
+         * Log a user into the application without sessions or cookies.
+         *
+         * @param array $credentials
+         * @return bool 
+         * @static 
+         */
+        public static function once($credentials = array()){
+            return \Illuminate\Auth\Guard::once($credentials);
+        }
+        
+        /**
+         * Validate a user's credentials.
+         *
+         * @param array $credentials
+         * @return bool 
+         * @static 
+         */
+        public static function validate($credentials = array()){
+            return \Illuminate\Auth\Guard::validate($credentials);
+        }
+        
+        /**
+         * Attempt to authenticate using HTTP Basic Auth.
+         *
+         * @param string $field
+         * @return \Symfony\Component\HttpFoundation\Response|null 
+         * @static 
+         */
+        public static function basic($field = 'email'){
+            return \Illuminate\Auth\Guard::basic($field);
+        }
+        
+        /**
+         * Perform a stateless HTTP Basic login attempt.
+         *
+         * @param string $field
+         * @return \Symfony\Component\HttpFoundation\Response|null 
+         * @static 
+         */
+        public static function onceBasic($field = 'email'){
+            return \Illuminate\Auth\Guard::onceBasic($field);
+        }
+        
+        /**
+         * Attempt to authenticate a user using the given credentials.
+         *
+         * @param array $credentials
+         * @param bool $remember
+         * @param bool $login
+         * @return bool 
+         * @static 
+         */
+        public static function attempt($credentials = array(), $remember = false, $login = true){
+            return \Illuminate\Auth\Guard::attempt($credentials, $remember, $login);
+        }
+        
+        /**
+         * Register an authentication attempt event listener.
+         *
+         * @param mixed $callback
+         * @return void 
+         * @static 
+         */
+        public static function attempting($callback){
+            \Illuminate\Auth\Guard::attempting($callback);
+        }
+        
+        /**
+         * Log a user into the application.
+         *
+         * @param \Illuminate\Contracts\Auth\Authenticatable $user
+         * @param bool $remember
+         * @return void 
+         * @static 
+         */
+        public static function login($user, $remember = false){
+            \Illuminate\Auth\Guard::login($user, $remember);
+        }
+        
+        /**
+         * Log the given user ID into the application.
+         *
+         * @param mixed $id
+         * @param bool $remember
+         * @return \App\Models\User 
+         * @static 
+         */
+        public static function loginUsingId($id, $remember = false){
+            return \Illuminate\Auth\Guard::loginUsingId($id, $remember);
+        }
+        
+        /**
+         * Log the given user ID into the application without sessions or cookies.
+         *
+         * @param mixed $id
+         * @return bool 
+         * @static 
+         */
+        public static function onceUsingId($id){
+            return \Illuminate\Auth\Guard::onceUsingId($id);
+        }
+        
+        /**
+         * Log the user out of the application.
+         *
+         * @return void 
+         * @static 
+         */
+        public static function logout(){
+            \Illuminate\Auth\Guard::logout();
+        }
+        
+        /**
+         * Get the cookie creator instance used by the guard.
+         *
+         * @return \Illuminate\Contracts\Cookie\QueueingFactory 
+         * @throws \RuntimeException
+         * @static 
+         */
+        public static function getCookieJar(){
+            return \Illuminate\Auth\Guard::getCookieJar();
+        }
+        
+        /**
+         * Set the cookie creator instance used by the guard.
+         *
+         * @param \Illuminate\Contracts\Cookie\QueueingFactory $cookie
+         * @return void 
+         * @static 
+         */
+        public static function setCookieJar($cookie){
+            \Illuminate\Auth\Guard::setCookieJar($cookie);
+        }
+        
+        /**
+         * Get the event dispatcher instance.
+         *
+         * @return \Illuminate\Contracts\Events\Dispatcher 
+         * @static 
+         */
+        public static function getDispatcher(){
+            return \Illuminate\Auth\Guard::getDispatcher();
+        }
+        
+        /**
+         * Set the event dispatcher instance.
+         *
+         * @param \Illuminate\Contracts\Events\Dispatcher $events
+         * @return void 
+         * @static 
+         */
+        public static function setDispatcher($events){
+            \Illuminate\Auth\Guard::setDispatcher($events);
+        }
+        
+        /**
+         * Get the session store used by the guard.
+         *
+         * @return \Illuminate\Session\Store 
+         * @static 
+         */
+        public static function getSession(){
+            return \Illuminate\Auth\Guard::getSession();
+        }
+        
+        /**
+         * Get the user provider used by the guard.
+         *
+         * @return \Illuminate\Contracts\Auth\UserProvider 
+         * @static 
+         */
+        public static function getProvider(){
+            return \Illuminate\Auth\Guard::getProvider();
+        }
+        
+        /**
+         * Set the user provider used by the guard.
+         *
+         * @param \Illuminate\Contracts\Auth\UserProvider $provider
+         * @return void 
+         * @static 
+         */
+        public static function setProvider($provider){
+            \Illuminate\Auth\Guard::setProvider($provider);
+        }
+        
+        /**
+         * Return the currently cached user.
+         *
+         * @return \App\Models\User|null 
+         * @static 
+         */
+        public static function getUser(){
+            return \Illuminate\Auth\Guard::getUser();
+        }
+        
+        /**
+         * Set the current user.
+         *
+         * @param \Illuminate\Contracts\Auth\Authenticatable $user
+         * @return void 
+         * @static 
+         */
+        public static function setUser($user){
+            \Illuminate\Auth\Guard::setUser($user);
+        }
+        
+        /**
+         * Get the current request instance.
+         *
+         * @return \Symfony\Component\HttpFoundation\Request 
+         * @static 
+         */
+        public static function getRequest(){
+            return \Illuminate\Auth\Guard::getRequest();
+        }
+        
+        /**
+         * Set the current request instance.
+         *
+         * @param \Symfony\Component\HttpFoundation\Request $request
+         * @return $this 
+         * @static 
+         */
+        public static function setRequest($request){
+            return \Illuminate\Auth\Guard::setRequest($request);
+        }
+        
+        /**
+         * Get the last user we attempted to authenticate.
+         *
+         * @return \App\Models\User 
+         * @static 
+         */
+        public static function getLastAttempted(){
+            return \Illuminate\Auth\Guard::getLastAttempted();
+        }
+        
+        /**
+         * Get a unique identifier for the auth session value.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getName(){
+            return \Illuminate\Auth\Guard::getName();
+        }
+        
+        /**
+         * Get the name of the cookie used to store the "recaller".
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getRecallerName(){
+            return \Illuminate\Auth\Guard::getRecallerName();
+        }
+        
+        /**
+         * Determine if the user was authenticated via "remember me" cookie.
+         *
+         * @return bool 
+         * @static 
+         */
+        public static function viaRemember(){
+            return \Illuminate\Auth\Guard::viaRemember();
+        }
+        
     }
 
 
@@ -2219,6 +2528,45 @@ namespace {
     }
 
 
+    class Crypt extends \Illuminate\Support\Facades\Crypt{
+        
+        /**
+         * Determine if the given key and cipher combination is valid.
+         *
+         * @param string $key
+         * @param string $cipher
+         * @return bool 
+         * @static 
+         */
+        public static function supported($key, $cipher){
+            return \Illuminate\Encryption\Encrypter::supported($key, $cipher);
+        }
+        
+        /**
+         * Encrypt the given value.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */
+        public static function encrypt($value){
+            return \Illuminate\Encryption\Encrypter::encrypt($value);
+        }
+        
+        /**
+         * Decrypt the given value.
+         *
+         * @param string $payload
+         * @return string 
+         * @static 
+         */
+        public static function decrypt($payload){
+            return \Illuminate\Encryption\Encrypter::decrypt($payload);
+        }
+        
+    }
+
+
     class DB extends \Illuminate\Support\Facades\DB{
         
         /**
@@ -2306,6 +2654,674 @@ namespace {
          */
         public static function getConnections(){
             return \Illuminate\Database\DatabaseManager::getConnections();
+        }
+        
+        /**
+         * Get a schema builder instance for the connection.
+         *
+         * @return \Illuminate\Database\Schema\MySqlBuilder 
+         * @static 
+         */
+        public static function getSchemaBuilder(){
+            return \Illuminate\Database\MySqlConnection::getSchemaBuilder();
+        }
+        
+        /**
+         * Set the query grammar to the default implementation.
+         *
+         * @return void 
+         * @static 
+         */
+        public static function useDefaultQueryGrammar(){
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\MySqlConnection::useDefaultQueryGrammar();
+        }
+        
+        /**
+         * Set the schema grammar to the default implementation.
+         *
+         * @return void 
+         * @static 
+         */
+        public static function useDefaultSchemaGrammar(){
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\MySqlConnection::useDefaultSchemaGrammar();
+        }
+        
+        /**
+         * Set the query post processor to the default implementation.
+         *
+         * @return void 
+         * @static 
+         */
+        public static function useDefaultPostProcessor(){
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\MySqlConnection::useDefaultPostProcessor();
+        }
+        
+        /**
+         * Begin a fluent query against a database table.
+         *
+         * @param string $table
+         * @return \Illuminate\Database\Query\Builder 
+         * @static 
+         */
+        public static function table($table){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::table($table);
+        }
+        
+        /**
+         * Get a new raw query expression.
+         *
+         * @param mixed $value
+         * @return \Illuminate\Database\Query\Expression 
+         * @static 
+         */
+        public static function raw($value){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::raw($value);
+        }
+        
+        /**
+         * Run a select statement and return a single result.
+         *
+         * @param string $query
+         * @param array $bindings
+         * @return mixed 
+         * @static 
+         */
+        public static function selectOne($query, $bindings = array()){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::selectOne($query, $bindings);
+        }
+        
+        /**
+         * Run a select statement against the database.
+         *
+         * @param string $query
+         * @param array $bindings
+         * @return array 
+         * @static 
+         */
+        public static function selectFromWriteConnection($query, $bindings = array()){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::selectFromWriteConnection($query, $bindings);
+        }
+        
+        /**
+         * Run a select statement against the database.
+         *
+         * @param string $query
+         * @param array $bindings
+         * @param bool $useReadPdo
+         * @return array 
+         * @static 
+         */
+        public static function select($query, $bindings = array(), $useReadPdo = true){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::select($query, $bindings, $useReadPdo);
+        }
+        
+        /**
+         * Run an insert statement against the database.
+         *
+         * @param string $query
+         * @param array $bindings
+         * @return bool 
+         * @static 
+         */
+        public static function insert($query, $bindings = array()){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::insert($query, $bindings);
+        }
+        
+        /**
+         * Run an update statement against the database.
+         *
+         * @param string $query
+         * @param array $bindings
+         * @return int 
+         * @static 
+         */
+        public static function update($query, $bindings = array()){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::update($query, $bindings);
+        }
+        
+        /**
+         * Run a delete statement against the database.
+         *
+         * @param string $query
+         * @param array $bindings
+         * @return int 
+         * @static 
+         */
+        public static function delete($query, $bindings = array()){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::delete($query, $bindings);
+        }
+        
+        /**
+         * Execute an SQL statement and return the boolean result.
+         *
+         * @param string $query
+         * @param array $bindings
+         * @return bool 
+         * @static 
+         */
+        public static function statement($query, $bindings = array()){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::statement($query, $bindings);
+        }
+        
+        /**
+         * Run an SQL statement and get the number of rows affected.
+         *
+         * @param string $query
+         * @param array $bindings
+         * @return int 
+         * @static 
+         */
+        public static function affectingStatement($query, $bindings = array()){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::affectingStatement($query, $bindings);
+        }
+        
+        /**
+         * Run a raw, unprepared query against the PDO connection.
+         *
+         * @param string $query
+         * @return bool 
+         * @static 
+         */
+        public static function unprepared($query){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::unprepared($query);
+        }
+        
+        /**
+         * Prepare the query bindings for execution.
+         *
+         * @param array $bindings
+         * @return array 
+         * @static 
+         */
+        public static function prepareBindings($bindings){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::prepareBindings($bindings);
+        }
+        
+        /**
+         * Execute a Closure within a transaction.
+         *
+         * @param \Closure $callback
+         * @return mixed 
+         * @throws \Throwable
+         * @static 
+         */
+        public static function transaction($callback){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::transaction($callback);
+        }
+        
+        /**
+         * Start a new database transaction.
+         *
+         * @return void 
+         * @static 
+         */
+        public static function beginTransaction(){
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\MySqlConnection::beginTransaction();
+        }
+        
+        /**
+         * Commit the active database transaction.
+         *
+         * @return void 
+         * @static 
+         */
+        public static function commit(){
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\MySqlConnection::commit();
+        }
+        
+        /**
+         * Rollback the active database transaction.
+         *
+         * @return void 
+         * @static 
+         */
+        public static function rollBack(){
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\MySqlConnection::rollBack();
+        }
+        
+        /**
+         * Get the number of active transactions.
+         *
+         * @return int 
+         * @static 
+         */
+        public static function transactionLevel(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::transactionLevel();
+        }
+        
+        /**
+         * Execute the given callback in "dry run" mode.
+         *
+         * @param \Closure $callback
+         * @return array 
+         * @static 
+         */
+        public static function pretend($callback){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::pretend($callback);
+        }
+        
+        /**
+         * Log a query in the connection's query log.
+         *
+         * @param string $query
+         * @param array $bindings
+         * @param float|null $time
+         * @return void 
+         * @static 
+         */
+        public static function logQuery($query, $bindings, $time = null){
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\MySqlConnection::logQuery($query, $bindings, $time);
+        }
+        
+        /**
+         * Register a database query listener with the connection.
+         *
+         * @param \Closure $callback
+         * @return void 
+         * @static 
+         */
+        public static function listen($callback){
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\MySqlConnection::listen($callback);
+        }
+        
+        /**
+         * Is Doctrine available?
+         *
+         * @return bool 
+         * @static 
+         */
+        public static function isDoctrineAvailable(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::isDoctrineAvailable();
+        }
+        
+        /**
+         * Get a Doctrine Schema Column instance.
+         *
+         * @param string $table
+         * @param string $column
+         * @return \Doctrine\DBAL\Schema\Column 
+         * @static 
+         */
+        public static function getDoctrineColumn($table, $column){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::getDoctrineColumn($table, $column);
+        }
+        
+        /**
+         * Get the Doctrine DBAL schema manager for the connection.
+         *
+         * @return \Doctrine\DBAL\Schema\AbstractSchemaManager 
+         * @static 
+         */
+        public static function getDoctrineSchemaManager(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::getDoctrineSchemaManager();
+        }
+        
+        /**
+         * Get the Doctrine DBAL database connection instance.
+         *
+         * @return \Doctrine\DBAL\Connection 
+         * @static 
+         */
+        public static function getDoctrineConnection(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::getDoctrineConnection();
+        }
+        
+        /**
+         * Get the current PDO connection.
+         *
+         * @return \PDO 
+         * @static 
+         */
+        public static function getPdo(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::getPdo();
+        }
+        
+        /**
+         * Get the current PDO connection used for reading.
+         *
+         * @return \PDO 
+         * @static 
+         */
+        public static function getReadPdo(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::getReadPdo();
+        }
+        
+        /**
+         * Set the PDO connection.
+         *
+         * @param \PDO|null $pdo
+         * @return $this 
+         * @static 
+         */
+        public static function setPdo($pdo){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::setPdo($pdo);
+        }
+        
+        /**
+         * Set the PDO connection used for reading.
+         *
+         * @param \PDO|null $pdo
+         * @return $this 
+         * @static 
+         */
+        public static function setReadPdo($pdo){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::setReadPdo($pdo);
+        }
+        
+        /**
+         * Set the reconnect instance on the connection.
+         *
+         * @param callable $reconnector
+         * @return $this 
+         * @static 
+         */
+        public static function setReconnector($reconnector){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::setReconnector($reconnector);
+        }
+        
+        /**
+         * Get the database connection name.
+         *
+         * @return string|null 
+         * @static 
+         */
+        public static function getName(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::getName();
+        }
+        
+        /**
+         * Get an option from the configuration options.
+         *
+         * @param string $option
+         * @return mixed 
+         * @static 
+         */
+        public static function getConfig($option){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::getConfig($option);
+        }
+        
+        /**
+         * Get the PDO driver name.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getDriverName(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::getDriverName();
+        }
+        
+        /**
+         * Get the query grammar used by the connection.
+         *
+         * @return \Illuminate\Database\Query\Grammars\Grammar 
+         * @static 
+         */
+        public static function getQueryGrammar(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::getQueryGrammar();
+        }
+        
+        /**
+         * Set the query grammar used by the connection.
+         *
+         * @param \Illuminate\Database\Query\Grammars\Grammar $grammar
+         * @return void 
+         * @static 
+         */
+        public static function setQueryGrammar($grammar){
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\MySqlConnection::setQueryGrammar($grammar);
+        }
+        
+        /**
+         * Get the schema grammar used by the connection.
+         *
+         * @return \Illuminate\Database\Schema\Grammars\Grammar 
+         * @static 
+         */
+        public static function getSchemaGrammar(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::getSchemaGrammar();
+        }
+        
+        /**
+         * Set the schema grammar used by the connection.
+         *
+         * @param \Illuminate\Database\Schema\Grammars\Grammar $grammar
+         * @return void 
+         * @static 
+         */
+        public static function setSchemaGrammar($grammar){
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\MySqlConnection::setSchemaGrammar($grammar);
+        }
+        
+        /**
+         * Get the query post processor used by the connection.
+         *
+         * @return \Illuminate\Database\Query\Processors\Processor 
+         * @static 
+         */
+        public static function getPostProcessor(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::getPostProcessor();
+        }
+        
+        /**
+         * Set the query post processor used by the connection.
+         *
+         * @param \Illuminate\Database\Query\Processors\Processor $processor
+         * @return void 
+         * @static 
+         */
+        public static function setPostProcessor($processor){
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\MySqlConnection::setPostProcessor($processor);
+        }
+        
+        /**
+         * Get the event dispatcher used by the connection.
+         *
+         * @return \Illuminate\Contracts\Events\Dispatcher 
+         * @static 
+         */
+        public static function getEventDispatcher(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::getEventDispatcher();
+        }
+        
+        /**
+         * Set the event dispatcher instance on the connection.
+         *
+         * @param \Illuminate\Contracts\Events\Dispatcher $events
+         * @return void 
+         * @static 
+         */
+        public static function setEventDispatcher($events){
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\MySqlConnection::setEventDispatcher($events);
+        }
+        
+        /**
+         * Determine if the connection in a "dry run".
+         *
+         * @return bool 
+         * @static 
+         */
+        public static function pretending(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::pretending();
+        }
+        
+        /**
+         * Get the default fetch mode for the connection.
+         *
+         * @return int 
+         * @static 
+         */
+        public static function getFetchMode(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::getFetchMode();
+        }
+        
+        /**
+         * Set the default fetch mode for the connection.
+         *
+         * @param int $fetchMode
+         * @return int 
+         * @static 
+         */
+        public static function setFetchMode($fetchMode){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::setFetchMode($fetchMode);
+        }
+        
+        /**
+         * Get the connection query log.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function getQueryLog(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::getQueryLog();
+        }
+        
+        /**
+         * Clear the query log.
+         *
+         * @return void 
+         * @static 
+         */
+        public static function flushQueryLog(){
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\MySqlConnection::flushQueryLog();
+        }
+        
+        /**
+         * Enable the query log on the connection.
+         *
+         * @return void 
+         * @static 
+         */
+        public static function enableQueryLog(){
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\MySqlConnection::enableQueryLog();
+        }
+        
+        /**
+         * Disable the query log on the connection.
+         *
+         * @return void 
+         * @static 
+         */
+        public static function disableQueryLog(){
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\MySqlConnection::disableQueryLog();
+        }
+        
+        /**
+         * Determine whether we're logging queries.
+         *
+         * @return bool 
+         * @static 
+         */
+        public static function logging(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::logging();
+        }
+        
+        /**
+         * Get the name of the connected database.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getDatabaseName(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::getDatabaseName();
+        }
+        
+        /**
+         * Set the name of the connected database.
+         *
+         * @param string $database
+         * @return string 
+         * @static 
+         */
+        public static function setDatabaseName($database){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::setDatabaseName($database);
+        }
+        
+        /**
+         * Get the table prefix for the connection.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getTablePrefix(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::getTablePrefix();
+        }
+        
+        /**
+         * Set the table prefix in use by the connection.
+         *
+         * @param string $prefix
+         * @return void 
+         * @static 
+         */
+        public static function setTablePrefix($prefix){
+            //Method inherited from \Illuminate\Database\Connection            
+            \Illuminate\Database\MySqlConnection::setTablePrefix($prefix);
+        }
+        
+        /**
+         * Set the table prefix and return the grammar.
+         *
+         * @param \Illuminate\Database\Grammar $grammar
+         * @return \Illuminate\Database\Grammar 
+         * @static 
+         */
+        public static function withTablePrefix($grammar){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::withTablePrefix($grammar);
         }
         
     }
@@ -6557,6 +7573,82 @@ namespace {
     }
 
 
+    class Password extends \Illuminate\Support\Facades\Password{
+        
+        /**
+         * Send a password reset link to a user.
+         *
+         * @param array $credentials
+         * @param \Closure|null $callback
+         * @return string 
+         * @static 
+         */
+        public static function sendResetLink($credentials, $callback = null){
+            return \Illuminate\Auth\Passwords\PasswordBroker::sendResetLink($credentials, $callback);
+        }
+        
+        /**
+         * Send the password reset link via e-mail.
+         *
+         * @param \Illuminate\Contracts\Auth\CanResetPassword $user
+         * @param string $token
+         * @param \Closure|null $callback
+         * @return int 
+         * @static 
+         */
+        public static function emailResetLink($user, $token, $callback = null){
+            return \Illuminate\Auth\Passwords\PasswordBroker::emailResetLink($user, $token, $callback);
+        }
+        
+        /**
+         * Reset the password for the given token.
+         *
+         * @param array $credentials
+         * @param \Closure $callback
+         * @return mixed 
+         * @static 
+         */
+        public static function reset($credentials, $callback){
+            return \Illuminate\Auth\Passwords\PasswordBroker::reset($credentials, $callback);
+        }
+        
+        /**
+         * Set a custom password validator.
+         *
+         * @param \Closure $callback
+         * @return void 
+         * @static 
+         */
+        public static function validator($callback){
+            \Illuminate\Auth\Passwords\PasswordBroker::validator($callback);
+        }
+        
+        /**
+         * Determine if the passwords match for the request.
+         *
+         * @param array $credentials
+         * @return bool 
+         * @static 
+         */
+        public static function validateNewPassword($credentials){
+            return \Illuminate\Auth\Passwords\PasswordBroker::validateNewPassword($credentials);
+        }
+        
+        /**
+         * Get the user for the given credentials.
+         *
+         * @param array $credentials
+         * @return \Illuminate\Contracts\Auth\CanResetPassword 
+         * @throws \UnexpectedValueException
+         * @static 
+         */
+        public static function getUser($credentials){
+            return \Illuminate\Auth\Passwords\PasswordBroker::getUser($credentials);
+        }
+        
+    }
+
+
     class Queue extends \Illuminate\Support\Facades\Queue{
         
         /**
@@ -6678,6 +7770,294 @@ namespace {
          */
         public static function isDownForMaintenance(){
             return \Illuminate\Queue\QueueManager::isDownForMaintenance();
+        }
+        
+        /**
+         * Push a new job onto the queue.
+         *
+         * @param string $job
+         * @param mixed $data
+         * @param string $queue
+         * @return mixed 
+         * @throws \Throwable
+         * @static 
+         */
+        public static function push($job, $data = '', $queue = null){
+            return \Illuminate\Queue\SyncQueue::push($job, $data, $queue);
+        }
+        
+        /**
+         * Push a raw payload onto the queue.
+         *
+         * @param string $payload
+         * @param string $queue
+         * @param array $options
+         * @return mixed 
+         * @static 
+         */
+        public static function pushRaw($payload, $queue = null, $options = array()){
+            return \Illuminate\Queue\SyncQueue::pushRaw($payload, $queue, $options);
+        }
+        
+        /**
+         * Push a new job onto the queue after a delay.
+         *
+         * @param \DateTime|int $delay
+         * @param string $job
+         * @param mixed $data
+         * @param string $queue
+         * @return mixed 
+         * @static 
+         */
+        public static function later($delay, $job, $data = '', $queue = null){
+            return \Illuminate\Queue\SyncQueue::later($delay, $job, $data, $queue);
+        }
+        
+        /**
+         * Pop the next job off of the queue.
+         *
+         * @param string $queue
+         * @return \Illuminate\Contracts\Queue\Job|null 
+         * @static 
+         */
+        public static function pop($queue = null){
+            return \Illuminate\Queue\SyncQueue::pop($queue);
+        }
+        
+        /**
+         * Push a new job onto the queue.
+         *
+         * @param string $queue
+         * @param string $job
+         * @param mixed $data
+         * @return mixed 
+         * @static 
+         */
+        public static function pushOn($queue, $job, $data = ''){
+            //Method inherited from \Illuminate\Queue\Queue            
+            return \Illuminate\Queue\SyncQueue::pushOn($queue, $job, $data);
+        }
+        
+        /**
+         * Push a new job onto the queue after a delay.
+         *
+         * @param string $queue
+         * @param \DateTime|int $delay
+         * @param string $job
+         * @param mixed $data
+         * @return mixed 
+         * @static 
+         */
+        public static function laterOn($queue, $delay, $job, $data = ''){
+            //Method inherited from \Illuminate\Queue\Queue            
+            return \Illuminate\Queue\SyncQueue::laterOn($queue, $delay, $job, $data);
+        }
+        
+        /**
+         * Marshal a push queue request and fire the job.
+         *
+         * @throws \RuntimeException
+         * @deprecated since version 5.1.
+         * @static 
+         */
+        public static function marshal(){
+            //Method inherited from \Illuminate\Queue\Queue            
+            return \Illuminate\Queue\SyncQueue::marshal();
+        }
+        
+        /**
+         * Push an array of jobs onto the queue.
+         *
+         * @param array $jobs
+         * @param mixed $data
+         * @param string $queue
+         * @return mixed 
+         * @static 
+         */
+        public static function bulk($jobs, $data = '', $queue = null){
+            //Method inherited from \Illuminate\Queue\Queue            
+            return \Illuminate\Queue\SyncQueue::bulk($jobs, $data, $queue);
+        }
+        
+        /**
+         * Set the IoC container instance.
+         *
+         * @param \Illuminate\Container\Container $container
+         * @return void 
+         * @static 
+         */
+        public static function setContainer($container){
+            //Method inherited from \Illuminate\Queue\Queue            
+            \Illuminate\Queue\SyncQueue::setContainer($container);
+        }
+        
+        /**
+         * Set the encrypter instance.
+         *
+         * @param \Illuminate\Contracts\Encryption\Encrypter $crypt
+         * @return void 
+         * @static 
+         */
+        public static function setEncrypter($crypt){
+            //Method inherited from \Illuminate\Queue\Queue            
+            \Illuminate\Queue\SyncQueue::setEncrypter($crypt);
+        }
+        
+    }
+
+
+    class Redirect extends \Illuminate\Support\Facades\Redirect{
+        
+        /**
+         * Create a new redirect response to the "home" route.
+         *
+         * @param int $status
+         * @return \Illuminate\Http\RedirectResponse 
+         * @static 
+         */
+        public static function home($status = 302){
+            return \Illuminate\Routing\Redirector::home($status);
+        }
+        
+        /**
+         * Create a new redirect response to the previous location.
+         *
+         * @param int $status
+         * @param array $headers
+         * @return \Illuminate\Http\RedirectResponse 
+         * @static 
+         */
+        public static function back($status = 302, $headers = array()){
+            return \Illuminate\Routing\Redirector::back($status, $headers);
+        }
+        
+        /**
+         * Create a new redirect response to the current URI.
+         *
+         * @param int $status
+         * @param array $headers
+         * @return \Illuminate\Http\RedirectResponse 
+         * @static 
+         */
+        public static function refresh($status = 302, $headers = array()){
+            return \Illuminate\Routing\Redirector::refresh($status, $headers);
+        }
+        
+        /**
+         * Create a new redirect response, while putting the current URL in the session.
+         *
+         * @param string $path
+         * @param int $status
+         * @param array $headers
+         * @param bool $secure
+         * @return \Illuminate\Http\RedirectResponse 
+         * @static 
+         */
+        public static function guest($path, $status = 302, $headers = array(), $secure = null){
+            return \Illuminate\Routing\Redirector::guest($path, $status, $headers, $secure);
+        }
+        
+        /**
+         * Create a new redirect response to the previously intended location.
+         *
+         * @param string $default
+         * @param int $status
+         * @param array $headers
+         * @param bool $secure
+         * @return \Illuminate\Http\RedirectResponse 
+         * @static 
+         */
+        public static function intended($default = '/', $status = 302, $headers = array(), $secure = null){
+            return \Illuminate\Routing\Redirector::intended($default, $status, $headers, $secure);
+        }
+        
+        /**
+         * Create a new redirect response to the given path.
+         *
+         * @param string $path
+         * @param int $status
+         * @param array $headers
+         * @param bool $secure
+         * @return \Illuminate\Http\RedirectResponse 
+         * @static 
+         */
+        public static function to($path, $status = 302, $headers = array(), $secure = null){
+            return \Illuminate\Routing\Redirector::to($path, $status, $headers, $secure);
+        }
+        
+        /**
+         * Create a new redirect response to an external URL (no validation).
+         *
+         * @param string $path
+         * @param int $status
+         * @param array $headers
+         * @return \Illuminate\Http\RedirectResponse 
+         * @static 
+         */
+        public static function away($path, $status = 302, $headers = array()){
+            return \Illuminate\Routing\Redirector::away($path, $status, $headers);
+        }
+        
+        /**
+         * Create a new redirect response to the given HTTPS path.
+         *
+         * @param string $path
+         * @param int $status
+         * @param array $headers
+         * @return \Illuminate\Http\RedirectResponse 
+         * @static 
+         */
+        public static function secure($path, $status = 302, $headers = array()){
+            return \Illuminate\Routing\Redirector::secure($path, $status, $headers);
+        }
+        
+        /**
+         * Create a new redirect response to a named route.
+         *
+         * @param string $route
+         * @param array $parameters
+         * @param int $status
+         * @param array $headers
+         * @return \Illuminate\Http\RedirectResponse 
+         * @static 
+         */
+        public static function route($route, $parameters = array(), $status = 302, $headers = array()){
+            return \Illuminate\Routing\Redirector::route($route, $parameters, $status, $headers);
+        }
+        
+        /**
+         * Create a new redirect response to a controller action.
+         *
+         * @param string $action
+         * @param array $parameters
+         * @param int $status
+         * @param array $headers
+         * @return \Illuminate\Http\RedirectResponse 
+         * @static 
+         */
+        public static function action($action, $parameters = array(), $status = 302, $headers = array()){
+            return \Illuminate\Routing\Redirector::action($action, $parameters, $status, $headers);
+        }
+        
+        /**
+         * Get the URL generator instance.
+         *
+         * @return \Illuminate\Routing\UrlGenerator 
+         * @static 
+         */
+        public static function getUrlGenerator(){
+            return \Illuminate\Routing\Redirector::getUrlGenerator();
+        }
+        
+        /**
+         * Set the active session store.
+         *
+         * @param \Illuminate\Session\Store $session
+         * @return void 
+         * @static 
+         */
+        public static function setSession($session){
+            \Illuminate\Routing\Redirector::setSession($session);
         }
         
     }
@@ -8240,6 +9620,187 @@ namespace {
     }
 
 
+    class Response extends \Illuminate\Support\Facades\Response{
+        
+        /**
+         * Return a new response from the application.
+         *
+         * @param string $content
+         * @param int $status
+         * @param array $headers
+         * @return \Illuminate\Http\Response 
+         * @static 
+         */
+        public static function make($content = '', $status = 200, $headers = array()){
+            return \Illuminate\Routing\ResponseFactory::make($content, $status, $headers);
+        }
+        
+        /**
+         * Return a new view response from the application.
+         *
+         * @param string $view
+         * @param array $data
+         * @param int $status
+         * @param array $headers
+         * @return \Illuminate\Http\Response 
+         * @static 
+         */
+        public static function view($view, $data = array(), $status = 200, $headers = array()){
+            return \Illuminate\Routing\ResponseFactory::view($view, $data, $status, $headers);
+        }
+        
+        /**
+         * Return a new JSON response from the application.
+         *
+         * @param string|array $data
+         * @param int $status
+         * @param array $headers
+         * @param int $options
+         * @return \Illuminate\Http\JsonResponse 
+         * @static 
+         */
+        public static function json($data = array(), $status = 200, $headers = array(), $options = 0){
+            return \Illuminate\Routing\ResponseFactory::json($data, $status, $headers, $options);
+        }
+        
+        /**
+         * Return a new JSONP response from the application.
+         *
+         * @param string $callback
+         * @param string|array $data
+         * @param int $status
+         * @param array $headers
+         * @param int $options
+         * @return \Illuminate\Http\JsonResponse 
+         * @static 
+         */
+        public static function jsonp($callback, $data = array(), $status = 200, $headers = array(), $options = 0){
+            return \Illuminate\Routing\ResponseFactory::jsonp($callback, $data, $status, $headers, $options);
+        }
+        
+        /**
+         * Return a new streamed response from the application.
+         *
+         * @param \Closure $callback
+         * @param int $status
+         * @param array $headers
+         * @return \Symfony\Component\HttpFoundation\StreamedResponse 
+         * @static 
+         */
+        public static function stream($callback, $status = 200, $headers = array()){
+            return \Illuminate\Routing\ResponseFactory::stream($callback, $status, $headers);
+        }
+        
+        /**
+         * Create a new file download response.
+         *
+         * @param \SplFileInfo|string $file
+         * @param string $name
+         * @param array $headers
+         * @param string|null $disposition
+         * @return \Symfony\Component\HttpFoundation\BinaryFileResponse 
+         * @static 
+         */
+        public static function download($file, $name = null, $headers = array(), $disposition = 'attachment'){
+            return \Illuminate\Routing\ResponseFactory::download($file, $name, $headers, $disposition);
+        }
+        
+        /**
+         * Create a new redirect response to the given path.
+         *
+         * @param string $path
+         * @param int $status
+         * @param array $headers
+         * @param bool|null $secure
+         * @return \Illuminate\Http\RedirectResponse 
+         * @static 
+         */
+        public static function redirectTo($path, $status = 302, $headers = array(), $secure = null){
+            return \Illuminate\Routing\ResponseFactory::redirectTo($path, $status, $headers, $secure);
+        }
+        
+        /**
+         * Create a new redirect response to a named route.
+         *
+         * @param string $route
+         * @param array $parameters
+         * @param int $status
+         * @param array $headers
+         * @return \Illuminate\Http\RedirectResponse 
+         * @static 
+         */
+        public static function redirectToRoute($route, $parameters = array(), $status = 302, $headers = array()){
+            return \Illuminate\Routing\ResponseFactory::redirectToRoute($route, $parameters, $status, $headers);
+        }
+        
+        /**
+         * Create a new redirect response to a controller action.
+         *
+         * @param string $action
+         * @param array $parameters
+         * @param int $status
+         * @param array $headers
+         * @return \Illuminate\Http\RedirectResponse 
+         * @static 
+         */
+        public static function redirectToAction($action, $parameters = array(), $status = 302, $headers = array()){
+            return \Illuminate\Routing\ResponseFactory::redirectToAction($action, $parameters, $status, $headers);
+        }
+        
+        /**
+         * Create a new redirect response, while putting the current URL in the session.
+         *
+         * @param string $path
+         * @param int $status
+         * @param array $headers
+         * @param bool|null $secure
+         * @return \Illuminate\Http\RedirectResponse 
+         * @static 
+         */
+        public static function redirectGuest($path, $status = 302, $headers = array(), $secure = null){
+            return \Illuminate\Routing\ResponseFactory::redirectGuest($path, $status, $headers, $secure);
+        }
+        
+        /**
+         * Create a new redirect response to the previously intended location.
+         *
+         * @param string $default
+         * @param int $status
+         * @param array $headers
+         * @param bool|null $secure
+         * @return \Illuminate\Http\RedirectResponse 
+         * @static 
+         */
+        public static function redirectToIntended($default = '/', $status = 302, $headers = array(), $secure = null){
+            return \Illuminate\Routing\ResponseFactory::redirectToIntended($default, $status, $headers, $secure);
+        }
+        
+        /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param callable $macro
+         * @return void 
+         * @static 
+         */
+        public static function macro($name, $macro){
+            \Illuminate\Routing\ResponseFactory::macro($name, $macro);
+        }
+        
+        /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */
+        public static function hasMacro($name){
+            return \Illuminate\Routing\ResponseFactory::hasMacro($name);
+        }
+        
+    }
+
+
     class Route extends \Illuminate\Support\Facades\Route{
         
         /**
@@ -8889,6 +10450,157 @@ namespace {
          */
         public static function hasMacro($name){
             return \Illuminate\Routing\Router::hasMacro($name);
+        }
+        
+    }
+
+
+    class Schema extends \Illuminate\Support\Facades\Schema{
+        
+        /**
+         * Determine if the given table exists.
+         *
+         * @param string $table
+         * @return bool 
+         * @static 
+         */
+        public static function hasTable($table){
+            return \Illuminate\Database\Schema\MySqlBuilder::hasTable($table);
+        }
+        
+        /**
+         * Get the column listing for a given table.
+         *
+         * @param string $table
+         * @return array 
+         * @static 
+         */
+        public static function getColumnListing($table){
+            return \Illuminate\Database\Schema\MySqlBuilder::getColumnListing($table);
+        }
+        
+        /**
+         * Determine if the given table has a given column.
+         *
+         * @param string $table
+         * @param string $column
+         * @return bool 
+         * @static 
+         */
+        public static function hasColumn($table, $column){
+            //Method inherited from \Illuminate\Database\Schema\Builder            
+            return \Illuminate\Database\Schema\MySqlBuilder::hasColumn($table, $column);
+        }
+        
+        /**
+         * Determine if the given table has given columns.
+         *
+         * @param string $table
+         * @param array $columns
+         * @return bool 
+         * @static 
+         */
+        public static function hasColumns($table, $columns){
+            //Method inherited from \Illuminate\Database\Schema\Builder            
+            return \Illuminate\Database\Schema\MySqlBuilder::hasColumns($table, $columns);
+        }
+        
+        /**
+         * Modify a table on the schema.
+         *
+         * @param string $table
+         * @param \Closure $callback
+         * @return \Illuminate\Database\Schema\Blueprint 
+         * @static 
+         */
+        public static function table($table, $callback){
+            //Method inherited from \Illuminate\Database\Schema\Builder            
+            return \Illuminate\Database\Schema\MySqlBuilder::table($table, $callback);
+        }
+        
+        /**
+         * Create a new table on the schema.
+         *
+         * @param string $table
+         * @param \Closure $callback
+         * @return \Illuminate\Database\Schema\Blueprint 
+         * @static 
+         */
+        public static function create($table, $callback){
+            //Method inherited from \Illuminate\Database\Schema\Builder            
+            return \Illuminate\Database\Schema\MySqlBuilder::create($table, $callback);
+        }
+        
+        /**
+         * Drop a table from the schema.
+         *
+         * @param string $table
+         * @return \Illuminate\Database\Schema\Blueprint 
+         * @static 
+         */
+        public static function drop($table){
+            //Method inherited from \Illuminate\Database\Schema\Builder            
+            return \Illuminate\Database\Schema\MySqlBuilder::drop($table);
+        }
+        
+        /**
+         * Drop a table from the schema if it exists.
+         *
+         * @param string $table
+         * @return \Illuminate\Database\Schema\Blueprint 
+         * @static 
+         */
+        public static function dropIfExists($table){
+            //Method inherited from \Illuminate\Database\Schema\Builder            
+            return \Illuminate\Database\Schema\MySqlBuilder::dropIfExists($table);
+        }
+        
+        /**
+         * Rename a table on the schema.
+         *
+         * @param string $from
+         * @param string $to
+         * @return \Illuminate\Database\Schema\Blueprint 
+         * @static 
+         */
+        public static function rename($from, $to){
+            //Method inherited from \Illuminate\Database\Schema\Builder            
+            return \Illuminate\Database\Schema\MySqlBuilder::rename($from, $to);
+        }
+        
+        /**
+         * Get the database connection instance.
+         *
+         * @return \Illuminate\Database\Connection 
+         * @static 
+         */
+        public static function getConnection(){
+            //Method inherited from \Illuminate\Database\Schema\Builder            
+            return \Illuminate\Database\Schema\MySqlBuilder::getConnection();
+        }
+        
+        /**
+         * Set the database connection instance.
+         *
+         * @param \Illuminate\Database\Connection $connection
+         * @return $this 
+         * @static 
+         */
+        public static function setConnection($connection){
+            //Method inherited from \Illuminate\Database\Schema\Builder            
+            return \Illuminate\Database\Schema\MySqlBuilder::setConnection($connection);
+        }
+        
+        /**
+         * Set the Schema Blueprint resolver callback.
+         *
+         * @param \Closure $resolver
+         * @return void 
+         * @static 
+         */
+        public static function blueprintResolver($resolver){
+            //Method inherited from \Illuminate\Database\Schema\Builder            
+            \Illuminate\Database\Schema\MySqlBuilder::blueprintResolver($resolver);
         }
         
     }
@@ -10316,6 +12028,470 @@ namespace {
     }
 
 
+    class Form extends \Collective\Html\FormFacade{
+        
+        /**
+         * Open up a new HTML form.
+         *
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function open($options = array()){
+            return \Collective\Html\FormBuilder::open($options);
+        }
+        
+        /**
+         * Create a new model based form builder.
+         *
+         * @param mixed $model
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function model($model, $options = array()){
+            return \Collective\Html\FormBuilder::model($model, $options);
+        }
+        
+        /**
+         * Set the model instance on the form builder.
+         *
+         * @param mixed $model
+         * @return void 
+         * @static 
+         */
+        public static function setModel($model){
+            \Collective\Html\FormBuilder::setModel($model);
+        }
+        
+        /**
+         * Close the current form.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function close(){
+            return \Collective\Html\FormBuilder::close();
+        }
+        
+        /**
+         * Generate a hidden field with the current CSRF token.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function token(){
+            return \Collective\Html\FormBuilder::token();
+        }
+        
+        /**
+         * Create a form label element.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function label($name, $value = null, $options = array()){
+            return \Collective\Html\FormBuilder::label($name, $value, $options);
+        }
+        
+        /**
+         * Create a form input field.
+         *
+         * @param string $type
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function input($type, $name, $value = null, $options = array()){
+            return \Collective\Html\FormBuilder::input($type, $name, $value, $options);
+        }
+        
+        /**
+         * Create a text input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function text($name, $value = null, $options = array()){
+            return \Collective\Html\FormBuilder::text($name, $value, $options);
+        }
+        
+        /**
+         * Create a password input field.
+         *
+         * @param string $name
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function password($name, $options = array()){
+            return \Collective\Html\FormBuilder::password($name, $options);
+        }
+        
+        /**
+         * Create a hidden input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function hidden($name, $value = null, $options = array()){
+            return \Collective\Html\FormBuilder::hidden($name, $value, $options);
+        }
+        
+        /**
+         * Create an e-mail input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function email($name, $value = null, $options = array()){
+            return \Collective\Html\FormBuilder::email($name, $value, $options);
+        }
+        
+        /**
+         * Create a tel input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function tel($name, $value = null, $options = array()){
+            return \Collective\Html\FormBuilder::tel($name, $value, $options);
+        }
+        
+        /**
+         * Create a number input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function number($name, $value = null, $options = array()){
+            return \Collective\Html\FormBuilder::number($name, $value, $options);
+        }
+        
+        /**
+         * Create a date input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function date($name, $value = null, $options = array()){
+            return \Collective\Html\FormBuilder::date($name, $value, $options);
+        }
+        
+        /**
+         * Create a time input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function time($name, $value = null, $options = array()){
+            return \Collective\Html\FormBuilder::time($name, $value, $options);
+        }
+        
+        /**
+         * Create a url input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function url($name, $value = null, $options = array()){
+            return \Collective\Html\FormBuilder::url($name, $value, $options);
+        }
+        
+        /**
+         * Create a file input field.
+         *
+         * @param string $name
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function file($name, $options = array()){
+            return \Collective\Html\FormBuilder::file($name, $options);
+        }
+        
+        /**
+         * Create a textarea input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function textarea($name, $value = null, $options = array()){
+            return \Collective\Html\FormBuilder::textarea($name, $value, $options);
+        }
+        
+        /**
+         * Create a select box field.
+         *
+         * @param string $name
+         * @param array $list
+         * @param string $selected
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function select($name, $list = array(), $selected = null, $options = array()){
+            return \Collective\Html\FormBuilder::select($name, $list, $selected, $options);
+        }
+        
+        /**
+         * Create a select range field.
+         *
+         * @param string $name
+         * @param string $begin
+         * @param string $end
+         * @param string $selected
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function selectRange($name, $begin, $end, $selected = null, $options = array()){
+            return \Collective\Html\FormBuilder::selectRange($name, $begin, $end, $selected, $options);
+        }
+        
+        /**
+         * Create a select year field.
+         *
+         * @param string $name
+         * @param string $begin
+         * @param string $end
+         * @param string $selected
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function selectYear(){
+            return \Collective\Html\FormBuilder::selectYear();
+        }
+        
+        /**
+         * Create a select month field.
+         *
+         * @param string $name
+         * @param string $selected
+         * @param array $options
+         * @param string $format
+         * @return string 
+         * @static 
+         */
+        public static function selectMonth($name, $selected = null, $options = array(), $format = '%B'){
+            return \Collective\Html\FormBuilder::selectMonth($name, $selected, $options, $format);
+        }
+        
+        /**
+         * Get the select option for the given value.
+         *
+         * @param string $display
+         * @param string $value
+         * @param string $selected
+         * @return string 
+         * @static 
+         */
+        public static function getSelectOption($display, $value, $selected){
+            return \Collective\Html\FormBuilder::getSelectOption($display, $value, $selected);
+        }
+        
+        /**
+         * Create a checkbox input field.
+         *
+         * @param string $name
+         * @param mixed $value
+         * @param bool $checked
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function checkbox($name, $value = 1, $checked = null, $options = array()){
+            return \Collective\Html\FormBuilder::checkbox($name, $value, $checked, $options);
+        }
+        
+        /**
+         * Create a radio button input field.
+         *
+         * @param string $name
+         * @param mixed $value
+         * @param bool $checked
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function radio($name, $value = null, $checked = null, $options = array()){
+            return \Collective\Html\FormBuilder::radio($name, $value, $checked, $options);
+        }
+        
+        /**
+         * Create a HTML reset input element.
+         *
+         * @param string $value
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */
+        public static function reset($value, $attributes = array()){
+            return \Collective\Html\FormBuilder::reset($value, $attributes);
+        }
+        
+        /**
+         * Create a HTML image input element.
+         *
+         * @param string $url
+         * @param string $name
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */
+        public static function image($url, $name = null, $attributes = array()){
+            return \Collective\Html\FormBuilder::image($url, $name, $attributes);
+        }
+        
+        /**
+         * Create a submit button element.
+         *
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function submit($value = null, $options = array()){
+            return \Collective\Html\FormBuilder::submit($value, $options);
+        }
+        
+        /**
+         * Create a button element.
+         *
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function button($value = null, $options = array()){
+            return \Collective\Html\FormBuilder::button($value, $options);
+        }
+        
+        /**
+         * Get the ID attribute for a field name.
+         *
+         * @param string $name
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */
+        public static function getIdAttribute($name, $attributes){
+            return \Collective\Html\FormBuilder::getIdAttribute($name, $attributes);
+        }
+        
+        /**
+         * Get the value that should be assigned to the field.
+         *
+         * @param string $name
+         * @param string $value
+         * @return mixed 
+         * @static 
+         */
+        public static function getValueAttribute($name, $value = null){
+            return \Collective\Html\FormBuilder::getValueAttribute($name, $value);
+        }
+        
+        /**
+         * Get a value from the session's old input.
+         *
+         * @param string $name
+         * @return mixed 
+         * @static 
+         */
+        public static function old($name){
+            return \Collective\Html\FormBuilder::old($name);
+        }
+        
+        /**
+         * Determine if the old input is empty.
+         *
+         * @return bool 
+         * @static 
+         */
+        public static function oldInputIsEmpty(){
+            return \Collective\Html\FormBuilder::oldInputIsEmpty();
+        }
+        
+        /**
+         * Get the session store implementation.
+         *
+         * @return \Illuminate\Session\Store $session
+         * @static 
+         */
+        public static function getSessionStore(){
+            return \Collective\Html\FormBuilder::getSessionStore();
+        }
+        
+        /**
+         * Set the session store implementation.
+         *
+         * @param \Illuminate\Session\Store $session
+         * @return $this 
+         * @static 
+         */
+        public static function setSessionStore($session){
+            return \Collective\Html\FormBuilder::setSessionStore($session);
+        }
+        
+        /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param callable $macro
+         * @return void 
+         * @static 
+         */
+        public static function macro($name, $macro){
+            \Collective\Html\FormBuilder::macro($name, $macro);
+        }
+        
+        /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */
+        public static function hasMacro($name){
+            return \Collective\Html\FormBuilder::hasMacro($name);
+        }
+        
+    }
+
+
     class Html extends \Collective\Html\HtmlFacade{
         
         /**
@@ -11060,6 +13236,847 @@ namespace {
         public static function offsetUnset($key){
             //Method inherited from \DebugBar\DebugBar            
             return \Barryvdh\Debugbar\LaravelDebugbar::offsetUnset($key);
+        }
+        
+    }
+
+
+    class Twig extends \TwigBridge\Facade\Twig{
+        
+        /**
+         * Get the Laravel app.
+         *
+         * @return \Illuminate\Foundation\Application 
+         * @static 
+         */
+        public static function getApplication(){
+            return \TwigBridge\Bridge::getApplication();
+        }
+        
+        /**
+         * Set the Laravel app.
+         *
+         * @param \Illuminate\Foundation\Application $app
+         * @return void 
+         * @static 
+         */
+        public static function setApplication($app){
+            \TwigBridge\Bridge::setApplication($app);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function loadTemplate($name, $index = null){
+            return \TwigBridge\Bridge::loadTemplate($name, $index);
+        }
+        
+        /**
+         * Lint (check) the syntax of a file on the view paths.
+         *
+         * @param string $file File to check. Supports dot-syntax.
+         * @return bool Whether the file passed or not.
+         * @static 
+         */
+        public static function lint($file){
+            return \TwigBridge\Bridge::lint($file);
+        }
+        
+        /**
+         * Merges a context with the shared variables, same as mergeGlobals()
+         *
+         * @param array $context An array representing the context
+         * @return array The context merged with the globals
+         * @static 
+         */
+        public static function mergeShared($context){
+            return \TwigBridge\Bridge::mergeShared($context);
+        }
+        
+        /**
+         * Gets the base template class for compiled templates.
+         *
+         * @return string The base template class name
+         * @static 
+         */
+        public static function getBaseTemplateClass(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getBaseTemplateClass();
+        }
+        
+        /**
+         * Sets the base template class for compiled templates.
+         *
+         * @param string $class The base template class name
+         * @static 
+         */
+        public static function setBaseTemplateClass($class){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::setBaseTemplateClass($class);
+        }
+        
+        /**
+         * Enables debugging mode.
+         *
+         * @static 
+         */
+        public static function enableDebug(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::enableDebug();
+        }
+        
+        /**
+         * Disables debugging mode.
+         *
+         * @static 
+         */
+        public static function disableDebug(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::disableDebug();
+        }
+        
+        /**
+         * Checks if debug mode is enabled.
+         *
+         * @return bool true if debug mode is enabled, false otherwise
+         * @static 
+         */
+        public static function isDebug(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::isDebug();
+        }
+        
+        /**
+         * Enables the auto_reload option.
+         *
+         * @static 
+         */
+        public static function enableAutoReload(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::enableAutoReload();
+        }
+        
+        /**
+         * Disables the auto_reload option.
+         *
+         * @static 
+         */
+        public static function disableAutoReload(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::disableAutoReload();
+        }
+        
+        /**
+         * Checks if the auto_reload option is enabled.
+         *
+         * @return bool true if auto_reload is enabled, false otherwise
+         * @static 
+         */
+        public static function isAutoReload(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::isAutoReload();
+        }
+        
+        /**
+         * Enables the strict_variables option.
+         *
+         * @static 
+         */
+        public static function enableStrictVariables(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::enableStrictVariables();
+        }
+        
+        /**
+         * Disables the strict_variables option.
+         *
+         * @static 
+         */
+        public static function disableStrictVariables(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::disableStrictVariables();
+        }
+        
+        /**
+         * Checks if the strict_variables option is enabled.
+         *
+         * @return bool true if strict_variables is enabled, false otherwise
+         * @static 
+         */
+        public static function isStrictVariables(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::isStrictVariables();
+        }
+        
+        /**
+         * Gets the cache directory or false if cache is disabled.
+         *
+         * @return string|false 
+         * @static 
+         */
+        public static function getCache(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getCache();
+        }
+        
+        /**
+         * Sets the cache directory or false if cache is disabled.
+         *
+         * @param string|false $cache The absolute path to the compiled templates,
+         *                            or false to disable cache
+         * @static 
+         */
+        public static function setCache($cache){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::setCache($cache);
+        }
+        
+        /**
+         * Gets the cache filename for a given template.
+         *
+         * @param string $name The template name
+         * @return string|false The cache file name or false when caching is disabled
+         * @static 
+         */
+        public static function getCacheFilename($name){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getCacheFilename($name);
+        }
+        
+        /**
+         * Gets the template class associated with the given string.
+         *
+         * @param string $name The name for which to calculate the template class name
+         * @param int $index The index if it is an embedded template
+         * @return string The template class name
+         * @static 
+         */
+        public static function getTemplateClass($name, $index = null){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getTemplateClass($name, $index);
+        }
+        
+        /**
+         * Gets the template class prefix.
+         *
+         * @return string The template class prefix
+         * @static 
+         */
+        public static function getTemplateClassPrefix(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getTemplateClassPrefix();
+        }
+        
+        /**
+         * Renders a template.
+         *
+         * @param string $name The template name
+         * @param array $context An array of parameters to pass to the template
+         * @return string The rendered template
+         * @throws Twig_Error_Loader  When the template cannot be found
+         * @throws Twig_Error_Syntax  When an error occurred during compilation
+         * @throws Twig_Error_Runtime When an error occurred during rendering
+         * @static 
+         */
+        public static function render($name, $context = array()){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::render($name, $context);
+        }
+        
+        /**
+         * Displays a template.
+         *
+         * @param string $name The template name
+         * @param array $context An array of parameters to pass to the template
+         * @throws Twig_Error_Loader  When the template cannot be found
+         * @throws Twig_Error_Syntax  When an error occurred during compilation
+         * @throws Twig_Error_Runtime When an error occurred during rendering
+         * @static 
+         */
+        public static function display($name, $context = array()){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::display($name, $context);
+        }
+        
+        /**
+         * Creates a template from source.
+         * 
+         * This method should not be used as a generic way to load templates.
+         *
+         * @param string $template The template name
+         * @return \Twig_Template A template instance representing the given template name
+         * @throws Twig_Error_Loader When the template cannot be found
+         * @throws Twig_Error_Syntax When an error occurred during compilation
+         * @static 
+         */
+        public static function createTemplate($template){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::createTemplate($template);
+        }
+        
+        /**
+         * Returns true if the template is still fresh.
+         * 
+         * Besides checking the loader for freshness information,
+         * this method also checks if the enabled extensions have
+         * not changed.
+         *
+         * @param string $name The template name
+         * @param int $time The last modification time of the cached template
+         * @return bool true if the template is fresh, false otherwise
+         * @static 
+         */
+        public static function isTemplateFresh($name, $time){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::isTemplateFresh($name, $time);
+        }
+        
+        /**
+         * Tries to load a template consecutively from an array.
+         * 
+         * Similar to loadTemplate() but it also accepts Twig_TemplateInterface instances and an array
+         * of templates where each is tried to be loaded.
+         *
+         * @param string|\Twig_Template|array $names A template or an array of templates to try consecutively
+         * @return \Twig_Template 
+         * @throws Twig_Error_Loader When none of the templates can be found
+         * @throws Twig_Error_Syntax When an error occurred during compilation
+         * @static 
+         */
+        public static function resolveTemplate($names){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::resolveTemplate($names);
+        }
+        
+        /**
+         * Clears the internal template cache.
+         *
+         * @deprecated since 1.18.3 (to be removed in 2.0)
+         * @static 
+         */
+        public static function clearTemplateCache(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::clearTemplateCache();
+        }
+        
+        /**
+         * Clears the template cache files on the filesystem.
+         *
+         * @static 
+         */
+        public static function clearCacheFiles(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::clearCacheFiles();
+        }
+        
+        /**
+         * Gets the Lexer instance.
+         *
+         * @return \Twig_LexerInterface A Twig_LexerInterface instance
+         * @static 
+         */
+        public static function getLexer(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getLexer();
+        }
+        
+        /**
+         * Sets the Lexer instance.
+         *
+         * @param \Twig_LexerInterface $lexer A Twig_LexerInterface instance
+         * @static 
+         */
+        public static function setLexer($lexer){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::setLexer($lexer);
+        }
+        
+        /**
+         * Tokenizes a source code.
+         *
+         * @param string $source The template source code
+         * @param string $name The template name
+         * @return \Twig_TokenStream A Twig_TokenStream instance
+         * @throws Twig_Error_Syntax When the code is syntactically wrong
+         * @static 
+         */
+        public static function tokenize($source, $name = null){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::tokenize($source, $name);
+        }
+        
+        /**
+         * Gets the Parser instance.
+         *
+         * @return \Twig_ParserInterface A Twig_ParserInterface instance
+         * @static 
+         */
+        public static function getParser(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getParser();
+        }
+        
+        /**
+         * Sets the Parser instance.
+         *
+         * @param \Twig_ParserInterface $parser A Twig_ParserInterface instance
+         * @static 
+         */
+        public static function setParser($parser){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::setParser($parser);
+        }
+        
+        /**
+         * Converts a token stream to a node tree.
+         *
+         * @param \Twig_TokenStream $stream A token stream instance
+         * @return \Twig_Node_Module A node tree
+         * @throws Twig_Error_Syntax When the token stream is syntactically or semantically wrong
+         * @static 
+         */
+        public static function parse($stream){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::parse($stream);
+        }
+        
+        /**
+         * Gets the Compiler instance.
+         *
+         * @return \Twig_CompilerInterface A Twig_CompilerInterface instance
+         * @static 
+         */
+        public static function getCompiler(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getCompiler();
+        }
+        
+        /**
+         * Sets the Compiler instance.
+         *
+         * @param \Twig_CompilerInterface $compiler A Twig_CompilerInterface instance
+         * @static 
+         */
+        public static function setCompiler($compiler){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::setCompiler($compiler);
+        }
+        
+        /**
+         * Compiles a node and returns the PHP code.
+         *
+         * @param \Twig_NodeInterface $node A Twig_NodeInterface instance
+         * @return string The compiled PHP source code
+         * @static 
+         */
+        public static function compile($node){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::compile($node);
+        }
+        
+        /**
+         * Compiles a template source code.
+         *
+         * @param string $source The template source code
+         * @param string $name The template name
+         * @return string The compiled PHP source code
+         * @throws Twig_Error_Syntax When there was an error during tokenizing, parsing or compiling
+         * @static 
+         */
+        public static function compileSource($source, $name = null){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::compileSource($source, $name);
+        }
+        
+        /**
+         * Sets the Loader instance.
+         *
+         * @param \Twig_LoaderInterface $loader A Twig_LoaderInterface instance
+         * @static 
+         */
+        public static function setLoader($loader){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::setLoader($loader);
+        }
+        
+        /**
+         * Gets the Loader instance.
+         *
+         * @return \Twig_LoaderInterface A Twig_LoaderInterface instance
+         * @static 
+         */
+        public static function getLoader(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getLoader();
+        }
+        
+        /**
+         * Sets the default template charset.
+         *
+         * @param string $charset The default charset
+         * @static 
+         */
+        public static function setCharset($charset){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::setCharset($charset);
+        }
+        
+        /**
+         * Gets the default template charset.
+         *
+         * @return string The default charset
+         * @static 
+         */
+        public static function getCharset(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getCharset();
+        }
+        
+        /**
+         * Initializes the runtime environment.
+         *
+         * @static 
+         */
+        public static function initRuntime(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::initRuntime();
+        }
+        
+        /**
+         * Returns true if the given extension is registered.
+         *
+         * @param string $name The extension name
+         * @return bool Whether the extension is registered or not
+         * @static 
+         */
+        public static function hasExtension($name){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::hasExtension($name);
+        }
+        
+        /**
+         * Gets an extension by name.
+         *
+         * @param string $name The extension name
+         * @return \Twig_ExtensionInterface A Twig_ExtensionInterface instance
+         * @static 
+         */
+        public static function getExtension($name){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getExtension($name);
+        }
+        
+        /**
+         * Registers an extension.
+         *
+         * @param \Twig_ExtensionInterface $extension A Twig_ExtensionInterface instance
+         * @static 
+         */
+        public static function addExtension($extension){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::addExtension($extension);
+        }
+        
+        /**
+         * Removes an extension by name.
+         * 
+         * This method is deprecated and you should not use it.
+         *
+         * @param string $name The extension name
+         * @deprecated since 1.12 (to be removed in 2.0)
+         * @static 
+         */
+        public static function removeExtension($name){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::removeExtension($name);
+        }
+        
+        /**
+         * Registers an array of extensions.
+         *
+         * @param array $extensions An array of extensions
+         * @static 
+         */
+        public static function setExtensions($extensions){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::setExtensions($extensions);
+        }
+        
+        /**
+         * Returns all registered extensions.
+         *
+         * @return array An array of extensions
+         * @static 
+         */
+        public static function getExtensions(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getExtensions();
+        }
+        
+        /**
+         * Registers a Token Parser.
+         *
+         * @param \Twig_TokenParserInterface $parser A Twig_TokenParserInterface instance
+         * @static 
+         */
+        public static function addTokenParser($parser){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::addTokenParser($parser);
+        }
+        
+        /**
+         * Gets the registered Token Parsers.
+         *
+         * @return \Twig_TokenParserBrokerInterface A broker containing token parsers
+         * @static 
+         */
+        public static function getTokenParsers(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getTokenParsers();
+        }
+        
+        /**
+         * Gets registered tags.
+         * 
+         * Be warned that this method cannot return tags defined by Twig_TokenParserBrokerInterface classes.
+         *
+         * @return \Twig_TokenParserInterface[] An array of Twig_TokenParserInterface instances
+         * @static 
+         */
+        public static function getTags(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getTags();
+        }
+        
+        /**
+         * Registers a Node Visitor.
+         *
+         * @param \Twig_NodeVisitorInterface $visitor A Twig_NodeVisitorInterface instance
+         * @static 
+         */
+        public static function addNodeVisitor($visitor){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::addNodeVisitor($visitor);
+        }
+        
+        /**
+         * Gets the registered Node Visitors.
+         *
+         * @return \Twig_NodeVisitorInterface[] An array of Twig_NodeVisitorInterface instances
+         * @static 
+         */
+        public static function getNodeVisitors(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getNodeVisitors();
+        }
+        
+        /**
+         * Registers a Filter.
+         *
+         * @param string|\Twig_SimpleFilter $name The filter name or a Twig_SimpleFilter instance
+         * @param \Twig_FilterInterface|\Twig_SimpleFilter $filter A Twig_FilterInterface instance or a Twig_SimpleFilter instance
+         * @static 
+         */
+        public static function addFilter($name, $filter = null){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::addFilter($name, $filter);
+        }
+        
+        /**
+         * Get a filter by name.
+         * 
+         * Subclasses may override this method and load filters differently;
+         * so no list of filters is available.
+         *
+         * @param string $name The filter name
+         * @return \Twig_Filter|false A Twig_Filter instance or false if the filter does not exist
+         * @static 
+         */
+        public static function getFilter($name){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getFilter($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function registerUndefinedFilterCallback($callable){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::registerUndefinedFilterCallback($callable);
+        }
+        
+        /**
+         * Gets the registered Filters.
+         * 
+         * Be warned that this method cannot return filters defined with registerUndefinedFunctionCallback.
+         *
+         * @return \Twig_FilterInterface[] An array of Twig_FilterInterface instances
+         * @see registerUndefinedFilterCallback
+         * @static 
+         */
+        public static function getFilters(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getFilters();
+        }
+        
+        /**
+         * Registers a Test.
+         *
+         * @param string|\Twig_SimpleTest $name The test name or a Twig_SimpleTest instance
+         * @param \Twig_TestInterface|\Twig_SimpleTest $test A Twig_TestInterface instance or a Twig_SimpleTest instance
+         * @static 
+         */
+        public static function addTest($name, $test = null){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::addTest($name, $test);
+        }
+        
+        /**
+         * Gets the registered Tests.
+         *
+         * @return \Twig_TestInterface[] An array of Twig_TestInterface instances
+         * @static 
+         */
+        public static function getTests(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getTests();
+        }
+        
+        /**
+         * Gets a test by name.
+         *
+         * @param string $name The test name
+         * @return \Twig_Test|false A Twig_Test instance or false if the test does not exist
+         * @static 
+         */
+        public static function getTest($name){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getTest($name);
+        }
+        
+        /**
+         * Registers a Function.
+         *
+         * @param string|\Twig_SimpleFunction $name The function name or a Twig_SimpleFunction instance
+         * @param \Twig_FunctionInterface|\Twig_SimpleFunction $function A Twig_FunctionInterface instance or a Twig_SimpleFunction instance
+         * @static 
+         */
+        public static function addFunction($name, $function = null){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::addFunction($name, $function);
+        }
+        
+        /**
+         * Get a function by name.
+         * 
+         * Subclasses may override this method and load functions differently;
+         * so no list of functions is available.
+         *
+         * @param string $name function name
+         * @return \Twig_Function|false A Twig_Function instance or false if the function does not exist
+         * @static 
+         */
+        public static function getFunction($name){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getFunction($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function registerUndefinedFunctionCallback($callable){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::registerUndefinedFunctionCallback($callable);
+        }
+        
+        /**
+         * Gets registered functions.
+         * 
+         * Be warned that this method cannot return functions defined with registerUndefinedFunctionCallback.
+         *
+         * @return \Twig_FunctionInterface[] An array of Twig_FunctionInterface instances
+         * @see registerUndefinedFunctionCallback
+         * @static 
+         */
+        public static function getFunctions(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getFunctions();
+        }
+        
+        /**
+         * Registers a Global.
+         * 
+         * New globals can be added before compiling or rendering a template;
+         * but after, you can only update existing globals.
+         *
+         * @param string $name The global name
+         * @param mixed $value The global value
+         * @static 
+         */
+        public static function addGlobal($name, $value){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::addGlobal($name, $value);
+        }
+        
+        /**
+         * Gets the registered Globals.
+         *
+         * @return array An array of globals
+         * @static 
+         */
+        public static function getGlobals(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getGlobals();
+        }
+        
+        /**
+         * Merges a context with the defined globals.
+         *
+         * @param array $context An array representing the context
+         * @return array The context merged with the globals
+         * @static 
+         */
+        public static function mergeGlobals($context){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::mergeGlobals($context);
+        }
+        
+        /**
+         * Gets the registered unary Operators.
+         *
+         * @return array An array of unary operators
+         * @static 
+         */
+        public static function getUnaryOperators(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getUnaryOperators();
+        }
+        
+        /**
+         * Gets the registered binary Operators.
+         *
+         * @return array An array of binary operators
+         * @static 
+         */
+        public static function getBinaryOperators(){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::getBinaryOperators();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function computeAlternatives($name, $items){
+            //Method inherited from \Twig_Environment            
+            return \TwigBridge\Bridge::computeAlternatives($name, $items);
         }
         
     }

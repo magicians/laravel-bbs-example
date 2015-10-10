@@ -11,7 +11,27 @@
 |
 */
 
-Route::get('/', function () {
-    $threads = \App\Models\Thread::with(['user', 'comments'])->paginate(10);
-    return view('welcome')->with(compact('threads'));
-});
+Route::get('/', [
+    'uses' => 'TopController@index',
+    'as'   => 'top',
+]);
+
+Route::get('/thread/create', [
+    'uses' => 'ThreadController@add',
+    'as'   => 'thread_create',
+]);
+
+Route::post('/thread/create', [
+    'uses' => 'ThreadController@create',
+    'as'   => 'post_thread_create',
+]);
+
+Route::get('/thread/{id}', [
+    'uses' => 'CommentController@show',
+    'as'   => 'comments',
+]);
+
+Route::post('/thread/{id}', [
+    'uses' => 'CommentController@create',
+    'as'   => 'comments',
+]);
