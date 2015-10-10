@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.1.16 (LTS) on 2015-10-10.
+ * Generated for Laravel 5.1.19 (LTS) on 2015-10-10.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -738,11 +738,12 @@ namespace {
          * @param string $concrete
          * @param string $abstract
          * @param \Closure|string $implementation
+         * @return void 
          * @static 
          */
         public static function addContextualBinding($concrete, $abstract, $implementation){
             //Method inherited from \Illuminate\Container\Container            
-            return \Illuminate\Foundation\Application::addContextualBinding($concrete, $abstract, $implementation);
+            \Illuminate\Foundation\Application::addContextualBinding($concrete, $abstract, $implementation);
         }
         
         /**
@@ -1155,7 +1156,7 @@ namespace {
         }
         
         /**
-         * Bootstrap the application for HTTP requests.
+         * Bootstrap the application for artisan commands.
          *
          * @return void 
          * @static 
@@ -2497,10 +2498,11 @@ namespace {
          * Remove a cookie from the queue.
          *
          * @param string $name
+         * @return void 
          * @static 
          */
         public static function unqueue($name){
-            return \Illuminate\Cookie\CookieJar::unqueue($name);
+            \Illuminate\Cookie\CookieJar::unqueue($name);
         }
         
         /**
@@ -2709,6 +2711,17 @@ namespace {
         public static function table($table){
             //Method inherited from \Illuminate\Database\Connection            
             return \Illuminate\Database\MySqlConnection::table($table);
+        }
+        
+        /**
+         * Get a new query builder instance.
+         *
+         * @return \Illuminate\Database\Query\Builder 
+         * @static 
+         */
+        public static function query(){
+            //Method inherited from \Illuminate\Database\Connection            
+            return \Illuminate\Database\MySqlConnection::query();
         }
         
         /**
@@ -4431,7 +4444,7 @@ namespace {
          * @return string 
          * @static 
          */
-        public static function implode($column, $glue = null){
+        public static function implode($column, $glue = ''){
             return \Illuminate\Database\Query\Builder::implode($column, $glue);
         }
         
@@ -4498,6 +4511,17 @@ namespace {
          */
         public static function avg($column){
             return \Illuminate\Database\Query\Builder::avg($column);
+        }
+        
+        /**
+         * Alias for the "avg" method.
+         *
+         * @param string $column
+         * @return float|int 
+         * @static 
+         */
+        public static function average($column){
+            return \Illuminate\Database\Query\Builder::average($column);
         }
         
         /**
@@ -4653,6 +4677,30 @@ namespace {
          */
         public static function useWritePdo(){
             return \Illuminate\Database\Query\Builder::useWritePdo();
+        }
+        
+        /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */
+        public static function hasMacro($name){
+            return \Illuminate\Database\Query\Builder::hasMacro($name);
+        }
+        
+        /**
+         * Dynamically handle calls to the class.
+         *
+         * @param string $method
+         * @param array $parameters
+         * @return mixed 
+         * @throws \BadMethodCallException
+         * @static 
+         */
+        public static function macroCall($method, $parameters){
+            return \Illuminate\Database\Query\Builder::macroCall($method, $parameters);
         }
         
     }
@@ -5745,6 +5793,8 @@ namespace {
         /**
          * Determine if the given content types match.
          *
+         * @param string $actual
+         * @param string $type
          * @return bool 
          * @static 
          */
@@ -7652,6 +7702,17 @@ namespace {
     class Queue extends \Illuminate\Support\Facades\Queue{
         
         /**
+         * Register an event listener for the after job event.
+         *
+         * @param mixed $callback
+         * @return void 
+         * @static 
+         */
+        public static function after($callback){
+            \Illuminate\Queue\QueueManager::after($callback);
+        }
+        
+        /**
          * Register an event listener for the daemon queue loop.
          *
          * @param mixed $callback
@@ -8469,6 +8530,8 @@ namespace {
         /**
          * Determine if the given content types match.
          *
+         * @param string $actual
+         * @param string $type
          * @return bool 
          * @static 
          */
@@ -13411,21 +13474,25 @@ namespace {
         }
         
         /**
-         * Gets the cache directory or false if cache is disabled.
+         * Gets the current cache implementation.
          *
-         * @return string|false 
+         * @param bool $original Whether to return the original cache option or the real cache instance
+         * @return \Twig_CacheInterface|string|false A Twig_CacheInterface implementation,
+         *                                          an absolute path to the compiled templates,
+         *                                          or false to disable cache
          * @static 
          */
-        public static function getCache(){
+        public static function getCache($original = true){
             //Method inherited from \Twig_Environment            
-            return \TwigBridge\Bridge::getCache();
+            return \TwigBridge\Bridge::getCache($original);
         }
         
         /**
-         * Sets the cache directory or false if cache is disabled.
+         * Sets the current cache implementation.
          *
-         * @param string|false $cache The absolute path to the compiled templates,
-         *                            or false to disable cache
+         * @param \Twig_CacheInterface|string|false $cache A Twig_CacheInterface implementation,
+         *                                                an absolute path to the compiled templates,
+         *                                                or false to disable cache
          * @static 
          */
         public static function setCache($cache){
@@ -13438,6 +13505,7 @@ namespace {
          *
          * @param string $name The template name
          * @return string|false The cache file name or false when caching is disabled
+         * @deprecated since 1.22 (to be removed in 2.0)
          * @static 
          */
         public static function getCacheFilename($name){
@@ -13462,6 +13530,7 @@ namespace {
          * Gets the template class prefix.
          *
          * @return string The template class prefix
+         * @deprecated since 1.22 (to be removed in 2.0)
          * @static 
          */
         public static function getTemplateClassPrefix(){
@@ -13564,6 +13633,7 @@ namespace {
         /**
          * Clears the template cache files on the filesystem.
          *
+         * @deprecated since 1.22 (to be removed in 2.0)
          * @static 
          */
         public static function clearCacheFiles(){

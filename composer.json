@@ -10,9 +10,7 @@
         "laravelcollective/html": "~5.0",
         "barryvdh/laravel-debugbar": "~2.0",
         "rcrowe/twigbridge": "0.8.x",
-        "filp/whoops": "~1.0",
-        "myclabs/php-enum": "^1.4",
-        "heroku/heroku-buildpack-php": "^78.0"
+        "filp/whoops": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -20,7 +18,8 @@
         "phpunit/phpunit": "~4.0",
         "phpspec/phpspec": "~2.1",
         "barryvdh/laravel-ide-helper": "~2.1",
-        "doctrine/dbal": "~2.3"
+        "doctrine/dbal": "~2.3",
+        "heroku/heroku-buildpack-php": "^78.0"
     },
     "autoload": {
         "classmap": [
