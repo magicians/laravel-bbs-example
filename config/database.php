@@ -1,5 +1,20 @@
 <?php
 
+$dbName = 'goodkp';
+$dbHost = 'localhost';
+$dbUser = 'user';
+$dbPass = 'pass';
+
+if (getenv('APP_ENV') !== 'local') {
+    $dbUrl = parse_url(getenv('CLEARDB_DATABASE_URL'));
+
+    $dbName = ltrim($dbUrl['path'], '/');
+    $dbHost = $dbUrl['host'];
+    $dbPort = $dbUrl['port'];
+    $dbUser = $dbUrl['user'];
+    $dbPass = $dbUrl['pass'];
+}
+
 return [
 
     /*
@@ -54,10 +69,10 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'forge'),
-            'username'  => env('DB_USERNAME', 'forge'),
-            'password'  => env('DB_PASSWORD', ''),
+            'host'      => env('DB_HOST', $dbHost),
+            'database'  => env('DB_DATABASE', $dbName),
+            'username'  => env('DB_USERNAME', $dbUser),
+            'password'  => env('DB_PASSWORD', $dbPass),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
